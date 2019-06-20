@@ -1,2 +1,62 @@
 4:01 PM 6/19/2019
+start
 
+7:27 AM 6/20/2019
+
+iam - identity access management
+iot - internet of things
+
+global infrastructure
+availability zone is a data center. its a facility where there are servers, SANs, switches, load balancer, etc. several data centers that are close together can be a single availability zone. perhaps a few miles within each others. 
+
+a region is a geographical area that contains two or more availability zones. london, oregon, sydeny, tokyo etc. 
+
+edge locations are end points for aws which are used for caching content. typically this consists of cloudfront, amazon's CDN (content delivery network). there are always more edge locations than regions. 
+
+route 53 is amazon's dns service
+
+vpc is virtual private cloud - virtual data center
+
+things needed for solutions architect exam - 
+aws global infrastructure
+compute
+storage
+databases
+migration & transfer
+network & content delivery
+management & governance
+machine learning
+analytics
+security, identity & compliance
+desktop & app streaming
+
+these are the core services needed - 
+
+aws global infrastructure
+compute
+storage
+databases
+network & content delivery
+security, identity & compliance
+
+# of edge location > # availability zones > # of regions
+
+identity access management 101
+
+iam allows you to manage users and the level of access to the aws console. 
+
+- centralized control of your aws account
+- shared access to your aws account
+- granualar permissions
+- identity federation (active directory, facebook etc.)
+- multifactor authentication
+- provides temporary access where necessary
+- allows setting up password rotation policy
+- integrates with many different aws services
+- supports pci dss compliance
+
+key terminology
+- users
+- groups
+- policies (made of documents, and these documents are in json format)
+- roles
