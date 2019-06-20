@@ -62,5 +62,3 @@ key terminology
 - roles
 
 what is the root account - this is the account that is used to sign up for aws. this has god mode access. 
-
-
