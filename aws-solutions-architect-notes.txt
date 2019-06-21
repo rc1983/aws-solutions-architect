@@ -42,6 +42,7 @@ security, identity & compliance
 # of edge location > # availability zones > # of regions
 
 identity access management 101
+-------------------------------
 
 iam allows you to manage users and the level of access to the aws console. 
 
@@ -61,4 +62,51 @@ key terminology
 - policies (made of documents, and these documents are in json format)
 - roles
 
+7:13 AM 6/21/2019
+
 what is the root account - this is the account that is used to sign up for aws. this has god mode access. 
+
+- iam is universal. it does not apply to regions
+- root account is the account created when setting up the aws account. it has complete admin access
+- new users have no permissions when first created
+	created an administrator access policy
+	created developers group
+- new users are assigned access key id and secret access key when first created
+- different types of access - console access, programmatic access
+- user access key id and secret keys are not the same as password. user access key id and secret keys cannot be used to access the console. they can be used to access aws via apis and command line
+- always setup mfa on root account
+
+s3 101
+------
+
+one of the oldest and most important services for the exam
+
+s3 = simple storage service
+
+
+- safe place to store files
+- oject based storage i.e they can be uploaded & files can be between 0 - 5tb in size. 
+- data is spread across multiple facilities
+- buckets must be unique in name, because they exist in the global namespace
+ex - https://s3-eu-west-1.amazonaws.com/<somename>
+- when you upload a file to s3, an http 200 code is received
+- objects consist of - key (name), value (data of the file), version id, metadata, subresources (access control list, torrents)
+
+how is data consistency acheived
+- read after write consistency for PUTS and new objects. if you write a new file and read it immediately afterwards, you will be able to view that data. 
+- eventual consistency for overwrite PUTS and DELETES (can take some time to propagate). if you update an existing file or delete a file and read it immediately, you may get the older version or maybe not. it might take some time to propagate the change. 
+
+s3 - guarantees
+- built for 99.99% availability for the s3 platform
+- amazon will guarantee 99.9% availability
+- amazon guarantees 99.99999999999% durability (99. eleven 9s)
+
+s3 - features
+
+- tiered storage (different storage classes)
+- lifecycle management (moving between different tiers)
+- versioning
+- encryption
+- mfa for deleting delete
+- secure data using access control list and bucket policies
+
