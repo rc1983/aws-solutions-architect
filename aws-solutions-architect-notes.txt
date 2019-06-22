@@ -212,3 +212,35 @@ it is also not going to replicate deleting individual versions
 
 s3 transfer acceleration utilizes the cloudfront edge network to accelerate uploads to s3
 instead of uploading to an s3 bucket, you can upload directly to a distinct url that will then transfer the file to s3
+
+17. cloudfront overview
+=======================
+
+key terminology
+	edge location - this is a location where contact is cached. this is separate to an aws region/az
+	origin - this is the origin of all the files that the cdn will distribute 
+	distribution - name that is given to the cdn which consists of a collection of edge locations
+	web distribution - typically used for websites
+	rtmp - used for media streaming
+
+cloudfront can be used to deliver your contant (website (static dynamic), steaming and interactive content) using a global network of edge locations. request for the content are automatically routed to the nearest edge location so content is delivered as fast as possible
+
+you can write to an edge location. 
+objects are cached for the life of the ttl (time to live)
+you can clear cached objects, but you will be charged
+
+19. snowball
+============
+
+it is a petabyte scale data transport solution that uses secure applicances to transfer large amounts of data into and out of aws. 
+
+transferring data with snowball is simple, fast, secure and can cost 1.5th of high speed internet
+
+snowball edge comes in 100tb data transfer device with on-board storage and compute capabilities. 
+
+snowball edge connects to your existing applications and infrastructure using standard storage interfaces. 
+
+it can cluster together to form a local storage tier and process your data on premises, helping ensure your applications continue to run even when they are not able to access the cloud. 
+
+snoball can import to s3, export to s3
+
