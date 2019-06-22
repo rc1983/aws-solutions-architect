@@ -109,4 +109,106 @@ s3 - features
 - encryption
 - mfa for deleting delete
 - secure data using access control list and bucket policies
+- stored redundant across multiple devices and multiple devices
 
+5:46 AM Saturday, June 22, 2019
+
+s3 storage classes
+
+- s3 standard
+	99.99% availability
+	99. (eleven 9s) durability
+	storaed acoross multiple devices in multiple locations
+	designed to sustain the loss of 2 facilities
+
+s3 - ia (infrequently accessed)
+	accessed less frequently and requires rapid access when accessed. charged retrieval fee
+
+s3 one zone - ia
+	low cost opetion for infrequently accessed data
+
+s3 intelligent tiering
+	uses machine learning to determine the tier, and moves it around different storage classes
+
+s3 glacier
+	secure low cost storage for data archiving
+	retrieval times are configurable from minutes to hours
+
+s3 glacier deep archive
+	low cost storage where retrieval times of 12 hours is acceptable. this is the lowest cost of storage you can buy. 
+	
+s3 charges
+	storage - the more you store in s3, the more you are charged
+	requests - the more you request, the more you are charged
+	storage management pricing - based on the tiers that are available
+	data transfer pricing - 
+	transfer acceleration - enable fast transfer of data between the end users and the s3 bucket. this takes advantage of amazon's cloudfront edge locations. as data arrives to the edge location, it is routed to amazon s3 over an optimized network path. 
+	cross region replication pricing - if a bucket is in one region (us west) to another (sydney) and if cross region replication is turned on, then this data is replicated across these regions, and it costs to do so. 
+
+exam tips for s3
+	s3 is object based. i.e. it allows file upload
+	files can be 0 bytes to 5TB
+	there is unlimited storage
+	files are stored in buckets (a folder in the cloud)
+	buckets should have a unique name, they are in a universal namespace
+	not suitable for installing an os or db
+	successful upload will result in http 200 code
+	you can turn on mfa delete
+	key (name) - value (sequence of bytes; data) - version id - metadata - subresources
+	consistency model - read after write for puts of new objects; eventual consistency for overwrite puts and deletes (can take some time to propagate)
+	rrs - reduced redundency storage, which is an older synonym for ia (infrequently accessed)
+
+s3 bucket properties that are most important for the solutions architect associate exam
+	versioning
+	static website hosting
+	encryption
+	transfer acceleration
+
+12. s3 security and encryption
+==============================
+newly created buckets are private
+access to the bucket can be controlled by
+	bucket policies
+	access control lists (acl)
+s3 buckets can be configured to create access logs, these logs can be sent to another bucket, or another bucket in another account
+
+there are different types of encryption
+	encryption in transit. ex - accessing a website over https
+		ssl/tls
+	encryption at rest (server side), this can be achieved by -
+		s3 managed keys - sse-s3 (server side encryption s3)
+		aws key management service (kms), managed keys - sse-kms (server side encryption key management service)
+		server side encryption with customer provided keys - sse-c
+	client side encryption - encrypt the file client side, and upload it to s3
+
+13. s3 version control
+======================
+
+versioning
+	stores all versions of an object, including all writes, even if the object is deleted
+	once versioning is enabled, it can only be suspended. to disable versioning, the entire bucket has to be deleted.
+	integrates with lifecycle rules
+	versioning comes with mfa delete capability
+	
+14. lifecycle management with s3
+================================
+
+lifecycle rules manage objects by automating transition to tiered storage. 
+can be used in conjunction with versioning. does not need versioning enabled.
+it can be applied to current versions and previous versions
+
+
+15. coress region replication
+=============================
+
+requires versioning to be enabled on both source and destination buckets
+files in existing bucket are not automatically replicated. 
+subsequent updates will be replicated
+deletes in the "primary" bucket are not replicated in the replication-bucket. 
+it is also not going to replicate deleting individual versions
+
+16. transfer acceleration
+=========================
+
+s3 transfer acceleration utilizes the cloudfront edge network to accelerate uploads to s3
+instead of uploading to an s3 bucket, you can upload directly to a distinct url that will then transfer the file to s3
