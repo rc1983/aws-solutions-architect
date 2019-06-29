@@ -90,9 +90,9 @@ s3 = simple storage service
 - buckets must be unique in name, because they exist in the global namespace
 ex - https://s3-eu-west-1.amazonaws.com/<somename>
 - when you upload a file to s3, an http 200 code is received
-- objects consist of - key (name), value (data of the file), version id, metadata, subresources (access control list, torrents)
+- objects consist of - key (name), value (data of the file), version id, metadata, sub resources (access control list, torrents)
 
-how is data consistency acheived
+how is data consistency achieved
 - read after write consistency for PUTS and new objects. if you write a new file and read it immediately afterwards, you will be able to view that data. 
 - eventual consistency for overwrite PUTS and DELETES (can take some time to propagate). if you update an existing file or delete a file and read it immediately, you may get the older version or maybe not. it might take some time to propagate the change. 
 
@@ -118,14 +118,14 @@ s3 storage classes
 - s3 standard
 	99.99% availability
 	99. (eleven 9s) durability
-	storaed acoross multiple devices in multiple locations
+	stored across multiple devices in multiple locations
 	designed to sustain the loss of 2 facilities
 
 s3 - ia (infrequently accessed)
 	accessed less frequently and requires rapid access when accessed. charged retrieval fee
 
 s3 one zone - ia
-	low cost opetion for infrequently accessed data
+	low cost option for infrequently accessed data
 
 s3 intelligent tiering
 	uses machine learning to determine the tier, and moves it around different storage classes
@@ -154,7 +154,7 @@ exam tips for s3
 	not suitable for installing an os or db
 	successful upload will result in http 200 code
 	you can turn on mfa delete
-	key (name) - value (sequence of bytes; data) - version id - metadata - subresources
+	key (name) - value (sequence of bytes; data) - version id - metadata - sub resources
 	consistency model - read after write for puts of new objects; eventual consistency for overwrite puts and deletes (can take some time to propagate)
 	rrs - reduced redundency storage, which is an older synonym for ia (infrequently accessed)
 
@@ -198,7 +198,7 @@ can be used in conjunction with versioning. does not need versioning enabled.
 it can be applied to current versions and previous versions
 
 
-15. coress region replication
+15. cross region replication
 =============================
 
 requires versioning to be enabled on both source and destination buckets
@@ -232,7 +232,7 @@ you can clear cached objects, but you will be charged
 19. snowball
 ============
 
-it is a petabyte scale data transport solution that uses secure applicances to transfer large amounts of data into and out of aws. 
+it is a petabyte scale data transport solution that uses secure appliances to transfer large amounts of data into and out of aws. 
 
 transferring data with snowball is simple, fast, secure and can cost 1.5th of high speed internet
 
@@ -242,5 +242,5 @@ snowball edge connects to your existing applications and infrastructure using st
 
 it can cluster together to form a local storage tier and process your data on premises, helping ensure your applications continue to run even when they are not able to access the cloud. 
 
-snoball can import to s3, export to s3
+snowball can import to s3, export to s3
 
