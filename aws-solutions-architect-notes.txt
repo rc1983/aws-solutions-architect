@@ -244,3 +244,28 @@ it can cluster together to form a local storage tier and process your data on pr
 
 snowball can import to s3, export to s3
 
+11:27 AM Saturday, June 29, 2019
+--------------------------------
+
+20. storage gateway
+===================
+
+aws storage gateway is a service that connects an on-premises software appliance with cloud based storage to provide integration between an organization's on-premises IT environment and aws' storage infrastructure. 
+
+aws' storage gateway software appliance is available for download as a virtual machine imagine that can be installed on a host in the datacenter. it support vmware, microsoft hyper-v. 
+
+once installed, it is associated with the aws account through an activation process. after which the aws management console can be used to create the storage the right gateway option. 
+
+there are three different types of storage gateway - 
+	file gateway (NFS)
+		stored as objects in s3 bucket accessed through network file system (nfs). once objects are stored in s3, they can be managed as native s3 objects. bucket policies apply. 
+	volume gateway (imagine of a hard drive) (iscsi)
+		stored volumes
+			data written to these volumes can be asynchronously backed up as point-in-time snapshots of the volumes and stored in the cloud as amazon ebs snapshots. these snapshots are incremental backups. the images are also compressed.
+		cached volumes
+			
+	tape gateway
+	
+
+
+
