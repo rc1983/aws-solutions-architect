@@ -5,6 +5,7 @@ start
 
 iam - identity access management
 iot - internet of things
+arn - amazon resource names
 
 global infrastructure
 availability zone is a data center. its a facility where there are servers, SANs, switches, load balancer, etc. several data centers that are close together can be a single availability zone. perhaps a few miles within each others. 
@@ -91,6 +92,7 @@ s3 = simple storage service
 ex - https://s3-eu-west-1.amazonaws.com/<somename>
 - when you upload a file to s3, an http 200 code is received
 - objects consist of - key (name), value (data of the file), version id, metadata, sub resources (access control list, torrents)
+- s3 buckets can be configured to create access logs and it can be sent to another bucket, even in a different account
 
 how is data consistency achieved
 - read after write consistency for PUTS and new objects. if you write a new file and read it immediately afterwards, you will be able to view that data. 
@@ -156,7 +158,7 @@ exam tips for s3
 	you can turn on mfa delete
 	key (name) - value (sequence of bytes; data) - version id - metadata - sub resources
 	consistency model - read after write for puts of new objects; eventual consistency for overwrite puts and deletes (can take some time to propagate)
-	rrs - reduced redundency storage, which is an older synonym for ia (infrequently accessed)
+	rrs - reduced redundancy storage, which is an older synonym for ia (infrequently accessed)
 
 s3 bucket properties that are most important for the solutions architect associate exam
 	versioning
@@ -263,9 +265,8 @@ there are three different types of storage gateway -
 		stored volumes
 			data written to these volumes can be asynchronously backed up as point-in-time snapshots of the volumes and stored in the cloud as amazon ebs snapshots. these snapshots are incremental backups. the images are also compressed.
 		cached volumes
-			
+			these let you use s3 as primary data storage while retaining frequently accessed data locally in your storage gateway. 
+			they minimize the need to scale on premises storage infrastructure while providing your applications with low-latency access to their frequently accessed data. 		
 	tape gateway
-	
-
-
+		cost effective solution to archive your data. the vtl (virtual tape library) lets you leverage existing tape based backup application infrastructure to store data on virtual tape cartridges that you create on your tape gateway. each tape is preconfigured with a media changer and tape drivers, which are available you your existing client backup applications as iscsi devices. you add tape cartridges a you need to archive your data. supported by netbackup, backup exec, veeam etc. 
 
