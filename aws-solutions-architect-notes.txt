@@ -191,6 +191,10 @@ versioning
 	once versioning is enabled, it can only be suspended. to disable versioning, the entire bucket has to be deleted.
 	integrates with lifecycle rules
 	versioning comes with mfa delete capability
+	if a new version of the file is uploaded, it needs to be made public again. 
+	the old versions are still available. 
+	size of the s3 bucket is the sum of all the versions of the file(s)
+	deleting a file will create a delete market. deleting the delete market will restore the file. 
 	
 14. lifecycle management with s3
 ================================
@@ -213,10 +217,16 @@ it is also not going to replicate deleting individual versions
 =========================
 
 s3 transfer acceleration utilizes the cloudfront edge network to accelerate uploads to s3
+
+user will upload to an edge location first and then the amazon backbone network will upload it to an s3 bucket.
+
+search for s3 transfer acceleration tool. this is the url that will compare the upload speeds - 
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html
+
 instead of uploading to an s3 bucket, you can upload directly to a distinct url that will then transfer the file to s3
 
-17. cloudfront overview
-=======================
+17. cloudfront overview (Networking & Content Delivery)
+=======================================================
 
 key terminology
 	edge location - this is a location where contact is cached. this is separate to an aws region/az
@@ -225,11 +235,15 @@ key terminology
 	web distribution - typically used for websites
 	rtmp - used for media streaming
 
-cloudfront can be used to deliver your contant (website (static dynamic), steaming and interactive content) using a global network of edge locations. request for the content are automatically routed to the nearest edge location so content is delivered as fast as possible
+cloudfront can be used to deliver your content (website - static/dynamic), steaming and interactive content using a global network of edge locations. request for the content are automatically routed to the nearest edge location so content is delivered as fast as possible
 
 you can write to an edge location. 
 objects are cached for the life of the ttl (time to live)
 you can clear cached objects, but you will be charged
+
+access to cloudfront distribution can be restricted using signed urls.
+
+
 
 19. snowball
 ============
@@ -269,4 +283,3 @@ there are three different types of storage gateway -
 			they minimize the need to scale on premises storage infrastructure while providing your applications with low-latency access to their frequently accessed data. 		
 	tape gateway
 		cost effective solution to archive your data. the vtl (virtual tape library) lets you leverage existing tape based backup application infrastructure to store data on virtual tape cartridges that you create on your tape gateway. each tape is preconfigured with a media changer and tape drivers, which are available you your existing client backup applications as iscsi devices. you add tape cartridges a you need to archive your data. supported by netbackup, backup exec, veeam etc. 
-
