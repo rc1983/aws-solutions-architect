@@ -230,7 +230,7 @@ instead of uploading to an s3 bucket, you can upload directly to a distinct url 
 
 key terminology
 	edge location - this is a location where contact is cached. this is separate to an aws region/az
-	origin - this is the origin of all the files that the cdn will distribute 
+	origin - this is the origin of all the files that the cdn will distribute. s3 bucket, ec2 instance, elastic load balancer, route53
 	distribution - name that is given to the cdn which consists of a collection of edge locations
 	web distribution - typically used for websites
 	rtmp - used for media streaming
