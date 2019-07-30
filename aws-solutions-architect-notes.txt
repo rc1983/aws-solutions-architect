@@ -243,10 +243,10 @@ you can clear cached objects, but you will be charged
 
 access to cloudfront distribution can be restricted using signed urls.
 
-
-
 19. snowball
 ============
+
+the primary use of snowball is to move large amount of data into the cloud. 
 
 it is a petabyte scale data transport solution that uses secure appliances to transfer large amounts of data into and out of aws. 
 
@@ -258,10 +258,7 @@ snowball edge connects to your existing applications and infrastructure using st
 
 it can cluster together to form a local storage tier and process your data on premises, helping ensure your applications continue to run even when they are not able to access the cloud. 
 
-snowball can import to s3, export to s3
-
-11:27 AM Saturday, June 29, 2019
---------------------------------
+snowball can import to s3, export to s3. 
 
 20. storage gateway
 ===================
@@ -271,7 +268,7 @@ aws storage gateway is a service that connects an on-premises software appliance
 aws' storage gateway software appliance is available for download as a virtual machine imagine that can be installed on a host in the datacenter. it support vmware, microsoft hyper-v. 
 
 once installed, it is associated with the aws account through an activation process. after which the aws management console can be used to create the storage the right gateway option. 
-
+````````````````````````````12
 there are three different types of storage gateway - 
 	file gateway (NFS)
 		stored as objects in s3 bucket accessed through network file system (nfs). once objects are stored in s3, they can be managed as native s3 objects. bucket policies apply. 
@@ -283,3 +280,7 @@ there are three different types of storage gateway -
 			they minimize the need to scale on premises storage infrastructure while providing your applications with low-latency access to their frequently accessed data. 		
 	tape gateway
 		cost effective solution to archive your data. the vtl (virtual tape library) lets you leverage existing tape based backup application infrastructure to store data on virtual tape cartridges that you create on your tape gateway. each tape is preconfigured with a media changer and tape drivers, which are available you your existing client backup applications as iscsi devices. you add tape cartridges a you need to archive your data. supported by netbackup, backup exec, veeam etc. 
+
+21. ec2 101
+===========
+
