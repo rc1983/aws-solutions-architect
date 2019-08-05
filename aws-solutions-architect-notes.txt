@@ -78,7 +78,7 @@ what is the root account - this is the account that is used to sign up for aws. 
 - always setup mfa on root account
 
 s3 101
-------
+======
 
 one of the oldest and most important services for the exam
 
@@ -268,7 +268,7 @@ aws storage gateway is a service that connects an on-premises software appliance
 aws' storage gateway software appliance is available for download as a virtual machine imagine that can be installed on a host in the datacenter. it support vmware, microsoft hyper-v. 
 
 once installed, it is associated with the aws account through an activation process. after which the aws management console can be used to create the storage the right gateway option. 
-````````````````````````````12
+
 there are three different types of storage gateway - 
 	file gateway (NFS)
 		stored as objects in s3 bucket accessed through network file system (nfs). once objects are stored in s3, they can be managed as native s3 objects. bucket policies apply. 
@@ -281,6 +281,23 @@ there are three different types of storage gateway -
 	tape gateway
 		cost effective solution to archive your data. the vtl (virtual tape library) lets you leverage existing tape based backup application infrastructure to store data on virtual tape cartridges that you create on your tape gateway. each tape is preconfigured with a media changer and tape drivers, which are available you your existing client backup applications as iscsi devices. you add tape cartridges a you need to archive your data. supported by netbackup, backup exec, veeam etc. 
 
-21. ec2 101
-===========
+21. ec2 (compute) 101
+=====================
+
+pricing models
+	on demand
+		by the hour, by the second
+	reserved
+		this offers a significant discount on hourly rates. 
+			standard reserved instances
+			convertible reserved instances
+			scheduled reserved instacnes
+	spot
+		enabled you to bid whatever price you want for instance capacity, providing for even greater savings
+		application that have flexible start and end times
+	dedicated houts
+		physical ec2 server dedicated for your use.for steady state and steady usage
+		for regulatory requirements, that may not support multi-tenent virtulization
+		can be purchased on demand
+		can be purchased as a reservation
 
