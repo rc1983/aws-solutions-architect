@@ -194,7 +194,7 @@ versioning
 	if a new version of the file is uploaded, it needs to be made public again. 
 	the old versions are still available. 
 	size of the s3 bucket is the sum of all the versions of the file(s)
-	deleting a file will create a delete market. deleting the delete market will restore the file. 
+	deleting a file will create a delete marker. deleting the delete marker will restore the file. 
 	
 14. lifecycle management with s3
 ================================
@@ -291,7 +291,7 @@ pricing models
 		this offers a significant discount on hourly rates. 
 			standard reserved instances
 			convertible reserved instances
-			scheduled reserved instacnes
+			scheduled reserved instances
 	spot
 		enabled you to bid whatever price you want for instance capacity, providing for even greater savings
 		application that have flexible start and end times
@@ -300,4 +300,12 @@ pricing models
 		for regulatory requirements, that may not support multi-tenent virtulization
 		can be purchased on demand
 		can be purchased as a reservation
+
+exam tips
+---------
+
+- termination protection is turned off by default
+- on an ebs backed instance, the default action is for the root ebs volution to be deleted when instance is terminated
+- ebs root volumes on your default ami's cannot be encrypted. you can also use third party tool (such as bit locker) to encrypt the root volume
+- additional volumes can be encrypted
 
