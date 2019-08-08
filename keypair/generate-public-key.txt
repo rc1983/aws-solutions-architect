@@ -1,0 +1,6 @@
+Instructions - 
+
+1. Extract the pem file out of WebServer01-KP.7z
+2. Move this file to a location such as C:\Users\ravi\Desktop\desktop_temp
+3. Run the following command - 
+ssh-keygen -y -f WebServer01-KP.pem > WebServer01-KP.pub
