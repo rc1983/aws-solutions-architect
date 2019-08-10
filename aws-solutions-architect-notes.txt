@@ -301,11 +301,38 @@ pricing models
 		can be purchased on demand
 		can be purchased as a reservation
 
+to ensure that the web server is running at startup, type the following - chkconfig on
+
 exam tips
 ---------
 
 - termination protection is turned off by default
 - on an ebs backed instance, the default action is for the root ebs volution to be deleted when instance is terminated
-- ebs root volumes on your default ami's cannot be encrypted. you can also use third party tool (such as bit locker) to encrypt the root volume
+- ebs root volumes on your default ami's can be encrypted as of 2019. this is a new feature. 
 - additional volumes can be encrypted
+
+
+ec2 security groups
+===================
+
+- making changes to a security rule can take effect immediately. in otherwords, disabling port 80 in the security group would propagate the changes immediately.
+
+- security group rules are stateful. this means if we are allowing traffic inbound to port 80, the outbound traffic over port 80 is automatically allowed. 
+
+- there is no way to blacklist a particular port or an ip address via a security group
+
+exam tips
+---------
+
+- all inbound traffic is blocked
+- all outbound traffic is allowed
+- changed to security groups take effect immediately
+- you can have multiple security groups attached to a single instance
+- you can have any number of ec2 instances within a security group
+- security groups are stateful (no need to change inbound and outbound rules. if you allow inbound, outbound is allowed)
+- cannot block specific ip addresses using security groups
+- you can specify allow rules but not deny rules (can be done with network access controllers)
+
+ebs 101
+=======
 
