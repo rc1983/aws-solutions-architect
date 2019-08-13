@@ -302,12 +302,13 @@ pricing models
 		can be purchased as a reservation
 
 to ensure that the web server is running at startup, type the following - chkconfig on
+putty command for starting apache - sudo service httpd start
 
 exam tips
 ---------
 
 - termination protection is turned off by default
-- on an ebs backed instance, the default action is for the root ebs volution to be deleted when instance is terminated
+- on an ebs backed instance, the default action is for the root ebs volume to be deleted when instance is terminated
 - ebs root volumes on your default ami's can be encrypted as of 2019. this is a new feature. 
 - additional volumes can be encrypted
 
@@ -315,7 +316,7 @@ exam tips
 ec2 security groups
 ===================
 
-- making changes to a security rule can take effect immediately. in otherwords, disabling port 80 in the security group would propagate the changes immediately.
+- making changes to a security rule can take effect immediately. in other words, disabling port 80 in the security group would propagate the changes immediately.
 
 - security group rules are stateful. this means if we are allowing traffic inbound to port 80, the outbound traffic over port 80 is automatically allowed. 
 
@@ -333,6 +334,22 @@ exam tips
 - cannot block specific ip addresses using security groups
 - you can specify allow rules but not deny rules (can be done with network access controllers)
 
-ebs 101
-=======
+ebs (elastic block store) 101
+=============================
+
+the ebs volume is located in the same availability zone as the ec2 instance
+
+standard - magnetic drive
+sc1 - cold ssd
+st1 - throughput optimized drive
+gp2 - root volume
+
+how to move volume from one availability zone to another?
+
+- create a snapshot of the volume
+- turn snapshot into an AMI
+- create an instance using the AMI
+
+- volumes exist in ebs. ebs is a virtual hard disk
+- snapshots exist on s3
 

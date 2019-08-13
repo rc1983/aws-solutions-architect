@@ -1,4 +1,4 @@
-public ip - 3.92.181.82
-public dns - ec2-3-92-181-82.compute-1.amazonaws.com
-private ip - 172.31.90.233
+public ip - 3.86.181.185
+public dns - ec2-3-86-181-185.compute-1.amazonaws.com
+private ip - 172.31.87.229
 user - ec2-user
