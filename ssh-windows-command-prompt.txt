@@ -1,0 +1,12 @@
+ssh through windows command prompt
+
+1. cd into the directory - 
+
+C:\Users\ravi\Documents\aws-keypair
+
+
+2. drop the keypair (.pem) in this directory 
+
+3. run the following command - 
+
+ssh ec2-user@ec2-100-26-46-211.compute-1.amazonaws.com -i WebServer01-KP.pem
